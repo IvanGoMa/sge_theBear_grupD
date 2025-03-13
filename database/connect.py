@@ -9,4 +9,3 @@ def connection_db():
         port = "5432"
     )
     return conn
-print(connection_db())
