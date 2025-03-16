@@ -36,3 +36,4 @@ def add_new_user(name:str, email:str, db:Session):
         }
     }
     return read_sch.schemas(users)"""
+

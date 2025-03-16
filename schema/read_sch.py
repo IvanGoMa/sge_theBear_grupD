@@ -12,3 +12,4 @@ def schemas(users) -> list[dict]:
 def users_schema(users)-> list[dict]:
     response = [schema(user) for user in users]
     return response
+

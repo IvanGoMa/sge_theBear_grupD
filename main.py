@@ -22,7 +22,7 @@ engine = create_engine(DATABASE_URL) #Crear l'engine de connexió. Engine és l'
 #3 Crear les taules a l abase de dades
 SQLModel.metadata.create_all(engine) #agafem la connexió i les taules(models) per crear la base de dades
 
-#5 és similar al cursor
+#4 és similar al cursor
 def get_db():
     db = Session(engine)
     try:
@@ -42,3 +42,4 @@ def read_user(db:Session = Depends(get_db)):
 def create_user(name: str, email:str, db:Session = Depends(get_db)):
     result = read.add_new_user(name, email, db)
     return result
+
