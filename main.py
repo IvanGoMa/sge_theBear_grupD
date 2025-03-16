@@ -27,7 +27,7 @@ def get_db():
         db.close()
 
 @app.get("/users/", response_model = list[dict])
-async def read_user(db:Session = Depends(get_db())):
+async def read_user(db:Session = Depends(get_db)):
     result = user.get_all_users(db)
     return result
 

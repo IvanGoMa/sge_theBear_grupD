@@ -7,9 +7,9 @@ def get_all_users(db:Session):
     users = db.exec(sql_read).all()
     return users_schema(users)
 
-async def add_new_user( name:str, email:str, db:Session):
+async def add_new_user(name:str, email:str, db:Session):
     db_user = User(name=name, email=email)
     db.add(db_user)
     db.commit()
     db.refresh(db_user)
-    return {"Crated user successfully"} #convertirlo a diccionario con user
+    return {"msg":"Created user successfully"}
