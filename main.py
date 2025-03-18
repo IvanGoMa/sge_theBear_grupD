@@ -1,6 +1,5 @@
-from typing import List
 from fastapi import FastAPI, Depends
-from services import read
+from services import user
 from sqlmodel import SQLModel, create_engine, Session
 from dotenv import load_dotenv
 import os
@@ -30,16 +29,16 @@ def get_db():
     finally:
         db.close()
 
-#5
+#5 modificació endpoint read
 @app.get("/users/", response_model= list[dict])
 def read_user(db:Session = Depends(get_db)):
-    result = read.get_all_users(db)
+    result = user.get_all_users(db)
     return result
 
 #6 añadir ususarios
 
 @app.post("/users/", response_model=dict)
 def create_user(name: str, email:str, db:Session = Depends(get_db)):
-    result = read.add_new_user(name, email, db)
+    result = user.add_new_user(name, email, db)
     return result
 
