@@ -35,10 +35,24 @@ def read_user(db:Session = Depends(get_db)):
     result = user.get_all_users(db)
     return result
 
-#6 añadir ususarios
+#6 añadir usuarios
 
 @app.post("/users/", response_model=dict)
 def create_user(name: str, email:str, db:Session = Depends(get_db)):
     result = user.add_new_user(name, email, db)
+    return result
+
+#7 actualizar usuario
+
+@app.put("/users/", response_model=dict)
+def update_user(name: str, email:str, db:Session = Depends(get_db)):
+    result = update_user(name, email, db)
+    return result
+
+#8 borrar usuario
+
+@app.put("/users/", response_model=dict)
+def delete_user(name: str, email:str, db:Session = Depends(get_db)):
+    result = delete_user(name, email, db)
     return result
 

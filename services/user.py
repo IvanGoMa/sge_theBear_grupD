@@ -14,6 +14,29 @@ def add_new_user(name:str, email:str, db:Session):
     db.refresh(db_user)
     return {"Created user succesfully"}
 
+################
+def update_user(name:str, db:Session):
+    statement = select(User).where(User.id == "2")
+    results = db.exec(statement)
+    user = results.one()
+    return {"User:", user}
+
+    User.name = "Kim"
+    db.add(User)
+    db.commit()
+    return {"Updated User succesfully"}
+
+def delete_user(name:str, db:Session):
+    statement = select(User).where(User.id == "2")
+    results = db.exec(statement)
+    user = results.one()
+    return {"User:", user}
+
+    db.delete(User)
+    db.commit()
+    return {"Deleted User succesfully"}
+
+
 """def registre():
     users = {
         "user1":{
