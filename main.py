@@ -45,14 +45,14 @@ def create_user(name: str, email:str, db:Session = Depends(get_db)):
 #7 actualizar usuario
 
 @app.put("/users/", response_model=dict)
-def update_user(name: str, email:str, db:Session = Depends(get_db)):
-    result = update_user(name, email, db)
+async def update_user(id: int, name:str, db:Session = Depends(get_db)):
+    result = user.update_user(id, name, db)
     return result
 
 #8 borrar usuario
 
-@app.put("/users/", response_model=dict)
-def delete_user(name: str, email:str, db:Session = Depends(get_db)):
-    result = delete_user(name, email, db)
+@app.delete("/users/", response_model=dict)
+async def delete_user(id: int, db:Session = Depends(get_db)):
+    result = user.delete_user(id, db)
     return result
 

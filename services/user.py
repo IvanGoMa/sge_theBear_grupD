@@ -8,33 +8,38 @@ def get_all_users(db:Session):
     return users_schema(users)
 
 def add_new_user(name:str, email:str, db:Session):
+    sql_read = select(User)
+    users = db.exec(sql_read).all
+    return users_schema(users)
+
+def add_new_user(name:str, email:str, db:Session):
     db_user = User(name=name, email=email)
     db.add(db_user)
     db.commit()
     db.refresh(db_user)
-    return {"Created user succesfully"}
+    return {"msg":"Created user succesfully"}
 
 ################
-def update_user(name:str, db:Session):
-    statement = select(User).where(User.id == "2")
+def update_user(id: int, name:str, db:Session):
+    statement = select(User).where(User.id == id)
     results = db.exec(statement)
     user = results.one()
-    return {"User:", user}
+    #return {"User:", user}
 
-    User.name = "Kim"
-    db.add(User)
+    user.name = name
+    db.add(user)
     db.commit()
-    return {"Updated User succesfully"}
+    return {"msg":"Updated User succesfully", "User":user}
 
-def delete_user(name:str, db:Session):
-    statement = select(User).where(User.id == "2")
+def delete_user(id:int, db:Session):
+    statement = select(User).where(User.id == id)
     results = db.exec(statement)
     user = results.one()
-    return {"User:", user}
+    #return {"User:", user}
 
-    db.delete(User)
+    db.delete(user)
     db.commit()
-    return {"Deleted User succesfully"}
+    return {"msg": "Deleted User succesfully"}
 
 
 """def registre():
