@@ -1,6 +1,6 @@
 from typing import List
 from fastapi import FastAPI, Depends
-from services import read, user
+from services import read, user, update, delete
 from sqlmodel import SQLModel, create_engine, Session
 from dotenv import load_dotenv
 import os
@@ -35,4 +35,16 @@ async def read_user(db:Session = Depends(get_db)):
 def create_user(name: str, email:str, db:Session = Depends(get_db)):
     result = user.add_new_user(name, email, db)
     return result
+
+@app.put("/users", response_model=str)
+def update_user(ide: str, name:str, db:Session = Depends(get_db)):
+    result = update.update_user(ide,name,db)
+    return result
+
+@app.delete("/users", response_model=str)
+def delete_user(ide: str,db:Session = Depends(get_db)):
+    result = delete.delete_user(ide,db)
+    return result
+
+
 
