@@ -1,6 +1,4 @@
 from schema import read_sch
-from sqlalchemy.testing.suite.test_reflection import users
-
 
 def registre():
     users= {
@@ -23,7 +21,7 @@ def registre():
             "age": 48
         }
     }
-    return read_sch.shemas(users)
+    return read_sch.schemas(users)
 
 
 
