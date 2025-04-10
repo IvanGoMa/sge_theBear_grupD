@@ -7,31 +7,30 @@ def get_all_empleats(db:Session):
     empleats = db.exec(sql_read).all()
     return empleats_schema(empleats)
 
-"""def add_new_user(name:str, email:str, db:Session):  FALTAN MODIFICAR!!!!
-    db_user = User(name=name, email=email)
-    db.add(db_user)
+def add_new_user(nom_complet:str, telefono:int, cargo:str, db:Session):
+    db_empleat = Empleat(nom_complet=nom_complet, telefono=telefono, cargo=cargo)
+    db.add(db_empleat)
     db.commit()
-    db.refresh(db_user)
-    return {"msg":"Created user succesfully"}
+    db.refresh(db_empleat)
+    return {"msg":"Created empleat succesfully"}
 
-################
-def update_user(id: int, name:str, db:Session):
-    statement = select(User).where(User.id == id)
+def update_empleat(id: int, nom_complet:str, telefono:int, cargo:str, db:Session):
+    statement = select(Empleat).where(Empleat.id == id)
     results = db.exec(statement)
-    user = results.one()
-    #return {"User:", user}
+    empleat = results.one()
+    #return {"Empleat:", empleat}
 
-    user.name = name
-    db.add(user)
+    empleat.nom_complet = nom_complet
+    db.add(empleat)
     db.commit()
-    return {"msg":"Updated User succesfully", "User":user}
+    return {"msg":"Updated Empleat succesfully", "Empleat":empleat}
 
-def delete_user(id:int, db:Session):
-    statement = select(User).where(User.id == id)
+def delete_empleat(id:int, db:Session):
+    statement = select(Empleat).where(Empleat.id == id)
     results = db.exec(statement)
-    user = results.one()
-    #return {"User:", user}
+    empleat = results.one()
+    #return {"Empleat:", empleat}
 
-    db.delete(user)
+    db.delete(empleat)
     db.commit()
-    return {"msg": "Deleted User succesfully"}"""
+    return {"msg": "Deleted Empleat succesfully"}
