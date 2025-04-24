@@ -14,7 +14,6 @@ def add_new_client(nom_complet:str, telefono:int, db:Session):
     db.refresh(db_client)
     return {"msg":"Created client succesfully"}
 
-################
 def update_cliente(id: int, nom_complet:str, db:Session):
     statement = select(Client).where(Client.id == id)
     results = db.exec(statement)
