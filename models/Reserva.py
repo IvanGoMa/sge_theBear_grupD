@@ -7,7 +7,7 @@ class Reserva(SQLModel, table = True):
     hora: int
     dia: int
     mes: int
-    anyo: int
+    any: int
 
 
 
