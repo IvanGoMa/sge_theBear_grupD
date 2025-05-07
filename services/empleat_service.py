@@ -7,7 +7,7 @@ def get_all_empleats(db:Session):
     empleats = db.exec(sql_read).all()
     return empleats_schema(empleats)
 
-def add_new_user(nom_complet:str, telefono:int, cargo:str, db:Session):
+def add_new_empleat(nom_complet:str, telefono:int, cargo:str, db:Session):
     db_empleat = Empleat(nom_complet=nom_complet, telefono=telefono, cargo=cargo)
     db.add(db_empleat)
     db.commit()

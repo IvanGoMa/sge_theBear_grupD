@@ -1,9 +1,11 @@
 
 
 from fastapi import FastAPI, Depends
-from services import user
+from services import empleat_service
+
 from sqlmodel import SQLModel, create_engine, Session
 from dotenv import load_dotenv
+
 import os
 
 app = FastAPI()
@@ -31,33 +33,38 @@ def get_db():
     finally:
         db.close()
 
-#5 modificació endpoint read
-@app.get("/users/", response_model= list[dict])
-def read_user(db:Session = Depends(get_db)):
-    result = user.get_all_users(db)
+#####--------Endpoints Empleat-------###############
+
+#read empleats
+@app.get("/empleats/", response_model= list[dict])
+def read_empleats(db:Session = Depends(get_db)):
+    result = empleat.get_all_empleats(db)
     return result
 
-#6 añadir usuarios
-
-@app.post("/users/", response_model=dict)
-def create_user(name: str, email:str, db:Session = Depends(get_db)):
-    result = user.add_new_user(name, email, db)
+@app.get("/empleat/", response_model= dict)
+def read_empleat(id:int, db:Session = Depends(get_db)):
+    result = empleat.get_all_empleat(db)
     return result
 
-#7 actualizar usuario
+#añadir empleat
 
-@app.put("/users/", response_model=dict)
-async def update_user(id: int, name:str, db:Session = Depends(get_db)):
-    result = user.update_user(id, name, db)
+@app.post("/empleats/", response_model=dict)
+def create_empleat(id:int,nom_complet:str, telefono:int, cargo:str, db:Session = Depends(get_db)):
+    result = empleat.add_new_empleat(nom_complet, telefono, cargo, db)
     return result
 
-#8 borrar usuario
+#actualizar empleat
 
-@app.delete("/users/", response_model=dict)
-async def delete_user(id: int, db:Session = Depends(get_db)):
-    result = user.delete_user(id, db)
+@app.put("/empleats/", response_model=dict)
+async def update_empleat(id: int, nom_complet:str, telefono:int, cargo:str, db:Session = Depends(get_db)):
+    result = empleat.update_empleat(id, nom_complet, telefono, cargo, db)
     return result
 
+#borrar empleat
 
+@app.delete("/empleats/", response_model=dict)
+async def delete_empleat(id: int, db:Session = Depends(get_db)):
+    result = empleat.delete_empleat(id, db)
+    return result
 
 
