@@ -1,4 +1,4 @@
-def compra_schema(compra) -> dict:
+def schema(compra) -> dict:
     return {
         "id_producte": compra.id_producte,
         "dia": compra.dia,
@@ -6,5 +6,5 @@ def compra_schema(compra) -> dict:
         "cantitat": compra.cantitat
     }
 
-def compres_schema(compres) -> list[dict]:
-    return [compra_schema(compra) for compra in compres]
+def schemas(compras) -> list[dict]:
+    return [schema(compra) for compra in compras]

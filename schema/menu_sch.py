@@ -1,30 +1,9 @@
-
-def producte_schema(producte) -> dict:
+def schema(menu) -> dict:
     return {
-        "id": producte.id,
-        "desc": producte.desc,
-        "preu": producte.preu
+        "id": menu.id,
+        "nom": menu.nom,
+        "preu": menu.preu
     }
 
-def productes_schema(productes) -> list[dict]:
-    return [producte_schema(producte) for producte in productes]
-
-# schema/menu_sch.py
-from pydantic import BaseModel
-from typing import List
-
-# Esquema para un solo menú
-class MenuSchema(BaseModel):
-    id: int
-    nom: str
-    preu: float
-
-    class Config:
-        orm_mode = True  # Esto permite trabajar con SQLAlchemy/SQLModel
-
-# Esquema para una lista de menús
-class MenusSchema(BaseModel):
-    menus: List[MenuSchema]  # Usamos una lista de MenuSchema
-
-    class Config:
-        orm_mode = True
+def schemas(menus) -> list[dict]:
+    return [schema(menu) for menu in menus]

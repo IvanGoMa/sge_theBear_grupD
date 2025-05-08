@@ -1,32 +1,41 @@
-from schema.compra_sch import compra_schema, compres_schema
+from pydantic_core.core_schema import none_schema
 from sqlmodel import Session, select
 from models.Compra import Compra
+from schema.compra_sch import schema,schemas
 
-def get_all_compra(db: Session):
+def add_compra(id_producte:int,dia:int,cantidad:int,hora:int, db:Session):
+    db_compra = Compra(id_producte=id_producte, dia=dia, cantidad = cantidad, hora=hora)
+    db.add(db_compra)
+    db.commit()
+    db.refresh(db_compra)
+    return "Compra creada"
+
+def read_compra(id_producte:int,dia:int, db:Session):
+    sql_read = select(Compra).where(Compra.id_producte == id_producte).where(Compra.dia == dia)
+    compra = db.exec(sql_read).one()
+    return schema(compra)
+
+def read_all_compras(db:Session):
     sql_read = select(Compra)
     compras = db.exec(sql_read).all()
-    return compres_schema(compras)
+    return schemas(compras)
 
-def update_compra(id: int, name: str, db: Session):
-    sql_select = select(Compra).where(Compra.id == id)
-    compra_db = db.exec(sql_select).one_or_none()
+def read_ticket(id_producte:int, db:Session):
+    sql_read = select(Compra).where(Compra.id_producte == id_producte)
+    ticket = db.exec(sql_read).all()
+    return schemas(ticket)
 
-    if compra_db is None:
-        return {"msg": "Compra not found"}
-
-    compra_db.name = name
-    db.add(compra_db)
+def update_compra(id_producte:int,dia:int,cantidad:int, db:Session):
+    sql_read = select(Compra).where(Compra.id_producte == id_producte, Compra.dia == dia)
+    compra = db.exec(sql_read).one()
+    compra.cantidad = cantidad
+    db.add(compra)
     db.commit()
-    db.refresh(compra_db)
-    return {"msg": "Compra updated successfully", "compra": compra_schema(compra_db)}
+    return "Compra de la reserva {} actualitzada".format(id_producte)
 
-def delete_compra(id: int, db: Session):
-    sql_select = select(Compra).where(Compra.id == id)
-    compra_db = db.exec(sql_select).one_or_none()
-
-    if compra_db is None:
-        return {"msg": "Compra not found"}
-
-    db.delete(compra_db)
+def delete_compra(id_producte:int, dia:int, db:Session):
+    sql_read = select(Compra).where(Compra.id_producte == id_producte, Compra.dia == dia)
+    compra = db.exec(sql_read).one()
+    db.delete(compra)
     db.commit()
-    return {"msg": "Compra deleted successfully"}
+    return "Compra eliminada"

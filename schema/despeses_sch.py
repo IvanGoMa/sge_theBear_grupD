@@ -1,4 +1,4 @@
-def despesa_schema(despesa) -> dict:
+def schema(despesa) -> dict:
     return {
         "id_empleat": despesa.id_empleat,
         "dia": despesa.dia,
@@ -7,5 +7,6 @@ def despesa_schema(despesa) -> dict:
         "description": despesa.description
     }
 
-def despeses_schema(despeses) -> list[dict]:
-    return [despesa_schema(despesa) for despesa in despeses]
+def schemas(despeses) -> list[dict]:
+    return [schema(despesa) for despesa in despeses]
+
