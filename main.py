@@ -1,28 +1,34 @@
 from typing import List
 from fastapi import FastAPI, Depends
-from services import compra, despeses, menu
-from sqlmodel import SQLModel, create_engine, Session, select
-from dotenv import load_dotenv
-import os
+from starlette.middleware.cors import CORSMiddleware
 
-# Cargar variables de entorno
-load_dotenv()
+from services import reserva, venta
+from sqlmodel import SQLModel, create_engine, Session
+from dotenv import load_dotenv
+from datetime import datetime
+import os
 
 app = FastAPI()
 
-# 1. Obtener la URL de la base de datos desde el archivo .env
-DATABASE_URL = os.getenv("DATABASE_URL")
-if not DATABASE_URL:
-    raise ValueError("DATABASE_URL no está definida en el archivo .env")
 
-# 2. Crear el motor de la base de datos
-engine = create_engine(DATABASE_URL, echo=True)  # echo=True para ver las consultas SQL en consola
+# 1. importem el .env (database_url). Carregar variable d'entorn
+load_dotenv()
 
-# 3. Crear las tablas en la base de datos (si aún no están creadas)
+# 2. Configurar la connexió a Postgresql
+DATABASE_URL = os.getenv("DATABASE_URL") #Obtenir la url de connexió
+engine = create_engine(DATABASE_URL) # Crear l'engine de connexió
+
+# 3. Crear les taules a la base de dades
 SQLModel.metadata.create_all(engine)
 
-# 4. Función para obtener una sesión de base de datos
+# 4. Retorna una sessió (memòria)
 def get_db():
-    with Session(engine) as db:  # Usar "with" para garantizar que la sesión se cierre correctamente
+    db = Session(engine)
+    try:
         yield db
+    finally:
+        db.close()
+
+
+
 
