@@ -2,7 +2,7 @@ from typing import List
 from fastapi import FastAPI, Depends
 from starlette.middleware.cors import CORSMiddleware
 
-from services import reserva, venta
+from services import reserva, venta, jornada, mesa
 from sqlmodel import SQLModel, create_engine, Session
 from dotenv import load_dotenv
 from datetime import datetime
@@ -94,4 +94,15 @@ def update_venta(id_reserva:int,id_menu:int,cantidad:int,db:Session = Depends(ge
 @app.delete("/ventas", response_model=str)
 def delete_venta(id_reserva:int,id_menu:int,db:Session = Depends(get_db)):
     result = venta.delete_venta(id_reserva,id_menu,db)
+    return result
+
+#Endpoints Jornada
+@app.get("/jornada/", response_model = dict)
+def get_jornada(id_empleat:int, dia: int, mes: int, any: int,db:Session = Depends(get_db)):
+    result = jornada.get_jornada(id_empleat, dia, mes, any, db)
+    return result
+
+@app.get("/jornada/", response_model = list[dict])
+def get_jornades(db:Session = Depends(get_db)):
+    result = jornada.get_jornades(db)
     return result
