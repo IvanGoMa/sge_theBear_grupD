@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Usuarios</title>
+    <link rel="stylesheet" href="style_form_reserves.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <h1>Llista de reserves</h1>
+    <table id="reservesTable">
+        <thead>
+            <div class="action-buttons">
+                <button><a href="reserves_form.html" class="action-btn">
+                    ADD RESERVA
+                </a></button>
+            </div>
+            <tr>
+                <th>ID Reserva</th>
+                <th>ID Client</th>
+                <th>ID Taula</th>
+                <th>Hora</th>
+				<th>Dia</th>
+				<th>Mes</th>
+				<th>Any</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Los datos se insertarán aquí dinámicamente -->
+        </tbody>
+    </table>
+
+    <!-- Cargamos el archivo JavaScript -->
+    <script src="script_reserves.js"></script>
+</body>
+</html>

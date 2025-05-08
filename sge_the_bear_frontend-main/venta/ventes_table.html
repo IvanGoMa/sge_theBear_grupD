@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Ventas</title>
+    <link rel="stylesheet" href="style_form_ventes.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <h1>Llista de Ventes</h1>
+    <table id="ventesTable">
+        <thead>
+            <div class="action-buttons">
+                <button><a href="ventes_form.html" class="action-btn">
+                    ADD VENTA
+                </a></button>
+            </div>
+            <tr>
+                <th>ID_Reserva</th>
+                <th>ID_Menú</th>
+                <th>Quantitad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Los datos se insertarán aquí dinámicamente -->
+        </tbody>
+    </table>
+
+    <!-- Cargamos el archivo JavaScript -->
+    <script src="script_ventes.js"></script>
+</body>
+</html>
