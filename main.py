@@ -1,31 +1,28 @@
 from typing import List
 from fastapi import FastAPI, Depends
-from services import read, user, update, delete
-from sqlmodel import SQLModel, create_engine, Session
+from services import compra, despeses, menu
+from sqlmodel import SQLModel, create_engine, Session, select
 from dotenv import load_dotenv
 import os
 
-app = FastAPI()
-
-
-# 1. importem el .env (database_url). Carregar variable d'entorn
+# Cargar variables de entorno
 load_dotenv()
 
-# 2. Configurar la connexió a Postgresql
-DATABASE_URL = os.getenv("DATABASE_URL") #Obtenir la url de connexió
-engine = create_engine(DATABASE_URL) # Crear l'engine de connexió
+app = FastAPI()
 
-# 3. Crear les taules a la base de dades
+# 1. Obtener la URL de la base de datos desde el archivo .env
+DATABASE_URL = os.getenv("DATABASE_URL")
+if not DATABASE_URL:
+    raise ValueError("DATABASE_URL no está definida en el archivo .env")
+
+# 2. Crear el motor de la base de datos
+engine = create_engine(DATABASE_URL, echo=True)  # echo=True para ver las consultas SQL en consola
+
+# 3. Crear las tablas en la base de datos (si aún no están creadas)
 SQLModel.metadata.create_all(engine)
 
-# 4. Retorna una sessió (memòria)
+# 4. Función para obtener una sesión de base de datos
 def get_db():
-    db = Session(engine)
-    try:
+    with Session(engine) as db:  # Usar "with" para garantizar que la sesión se cierre correctamente
         yield db
-    finally:
-        db.close()
-
-
-
 
