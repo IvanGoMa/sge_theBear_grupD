@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Nova Reserva</title>
+    <link rel="stylesheet" href="style_form_reserves.css">
+</head>
+<body>
+    <div class="erp-container">
+            <!-- Capçalera Odoo-style -->
+            <header class="erp-header">
+                <div class="erp-logo">ERP System</div>
+                <nav class="erp-nav">
+                    <a href="../main_page.html">Inici</a>
+                    <a href="../venta/ventes_form.html">Ventes</a>
+                    <a href="../ususaris/index_form.html">Usuaris</a>
+                    <a href="#">Inventari</a>
+                </nav>
+                <div class="erp-user">Admin</div>
+            </header>
+        <div class="container">
+            <h1>Crear Nova Reserva</h1>
+            <form id="reservaForm">
+                <div class="form-group">
+                    <label for="id">Id de la reserva:</label>
+                    <input type="number" id="id" name="id" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="id_client">Id Client:</label>
+                    <input type="number" id="id_client" name="id_client" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="id_mesa">Id Taula:</label>
+                    <input type="number" id="id_mesa" name="id_mesa" required>
+                </div>
+				
+                <div class="form-group">
+                    <label for="hora">Hora:</label>
+                    <input type ="number" id="hora" name="hora" required>
+                </div>
+				
+				<div class="form-group">
+                    <label for="dia">Dia:</label>
+                    <input type ="number" id="dia" name="dia" required>
+                </div>
+				
+				<div class="form-group">
+                    <label for="mes">Mes:</label>
+                    <input type ="number" id="mes" name="mes" required>
+                </div>
+				
+				<div class="form-group">
+                    <label for="any">Any:</label>
+                    <input type ="number" id="any" name="any" required>
+                </div>
+				
+                <button type="submit">Crear Reserva</button>
+                </br></br>
+                <div class="action-buttons">
+                <button><a href="reserves_table.html" class="action-btn">
+                    SHOW TABLE RESERVES
+                </a></button>
+             </div>
+            </form>
+            <div id="message" class="message"></div>
+        </div>
+    </div>
+
+    <script src="script_form_reserves.js"></script>
+</body>
+</html>
