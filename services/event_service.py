@@ -13,14 +13,14 @@ def get_event( id, db:Session):
     events = db.exec(sql_read).one()
     return event_schema(events)
 
-def add_new_event(dia:int, hora:int, db:Session):
-    db_event = Event(dia=dia, hora=hora)
+def add_new_event(dia:int, hora:int,id_client:int, id_empleat:int, descripcio:str, db:Session):
+    db_event = Event(dia=dia, hora=hora, id_client=id_client, id_empleat=id_empleat,descripcio=descripcio)
     db.add(db_event)
     db.commit()
     db.refresh(db_event)
     return {"msg":"Created event succesfully"}
 
-def update_event(id: int, dia:int, hora:int, db:Session):
+def update_event(id: int, dia:int, hora:int, id_client:int, id_empleat:int, descripcio:str,db:Session):
     statement = select(Event).where(Event.id == id)
     results = db.exec(statement)
     event = results.one()
