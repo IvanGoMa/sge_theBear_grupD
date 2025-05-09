@@ -8,7 +8,7 @@ def add_reserva(id:int,id_client:int, id_mesa:int, hora:int, dia:int, mes:int, a
     db.add(db_reserva)
     db.commit()
     db.refresh(db_reserva)
-    return "Reserva creada"
+    return {"msg":"Reserva creada"}
 
 def read_reserva(id:int,db:Session):
     sql_read = select(Reserva).where(Reserva.id == id)
