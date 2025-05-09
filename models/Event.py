@@ -5,5 +5,5 @@ class Event(SQLModel, table=True):
     dia: int #= Field(foreign_key="data.dia")
     hora: int #= Field(foreign_key="data.hora")
     mes: int
-    any: int
+    anyo: int
     descripcio: str
