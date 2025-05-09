@@ -28,6 +28,8 @@ def update_empleat(id: int, nom_complet:str, telefono:int, cargo:str, db:Session
     #return {"Empleat:", empleat}
 
     empleat.nom_complet = nom_complet
+    empleat.telefono = telefono
+    empleat.cargo = cargo
     db.add(empleat)
     db.commit()
     return {"msg":"Updated Empleat succesfully", "Empleat":empleat}
