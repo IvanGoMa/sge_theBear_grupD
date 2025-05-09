@@ -110,14 +110,14 @@ def read_event(id:int, db:Session = Depends(get_db)):
 
 #añadir event
 @app.post("/events/", response_model=dict)
-def create_event(id:int,dia:int, hora:int,id_client:int,id_empleat:int,descripcio:str, db:Session = Depends(get_db)):
-    result = event_service.add_new_event(dia, hora,id_client,id_empleat,descripcio, db)
+def create_event(id:int,dia:int, hora:int, mes:int, any:int, descripcio:str, db:Session = Depends(get_db)):
+    result = event_service.add_new_event(id, dia, hora, mes, any,descripcio, db)
     return result
 
 #actualizar event
 @app.put("/events/", response_model=dict)
-async def update_event(id: int, dia:int, hora:int, id_client:int, id_empleat:int, descripcio:str, db:Session = Depends(get_db)):
-    result = event_service.update_event(id, dia, hora,id_client, id_empleat, descripcio, db)
+async def update_event(id: int, dia:int, hora:int, mes:int, any:int, descripcio:str, db:Session = Depends(get_db)):
+    result = event_service.update_event(id, dia, hora, mes, any, descripcio, db)
     return result
 
 #borrar event

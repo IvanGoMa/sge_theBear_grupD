@@ -29,6 +29,7 @@ def update_client(id: int, nom_complet:str, telefono: int, db:Session):
     #return {"User:", user}
 
     client.nom_complet = nom_complet
+    client.telefono = telefono
     db.add(client)
     db.commit()
     return {"msg":"Updated Client succesfully", "Client":client}
