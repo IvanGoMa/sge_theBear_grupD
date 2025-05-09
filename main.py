@@ -1,6 +1,7 @@
 from typing import List
 from fastapi import FastAPI, Depends
 from starlette.middleware.cors import CORSMiddleware
+from services import empleat_service, client_service, event_service
 
 from services import reserva, venta, jornada, mesa
 from sqlmodel import SQLModel, create_engine, Session
@@ -106,3 +107,98 @@ def get_jornada(id_empleat:int, dia: int, mes: int, any: int,db:Session = Depend
 def get_jornades(db:Session = Depends(get_db)):
     result = jornada.get_jornades(db)
     return result
+
+#####--------Endpoints Empleat-------###############
+
+#read empleats
+@app.get("/empleats/", response_model= list[dict])
+def read_empleats(db:Session = Depends(get_db)):
+    result = empleat_service.get_all_empleats(db)
+    return result
+
+@app.get("/empleat/", response_model= dict)
+def read_empleat(id:int, db:Session = Depends(get_db)):
+    result = empleat_service.get_empleat(id, db)
+    return result
+
+#añadir empleat
+@app.post("/empleats/", response_model=dict)
+def create_empleat(id:int,nom_complet:str, telefono:int, cargo:str, db:Session = Depends(get_db)):
+    result = empleat_service.add_new_empleat(nom_complet, telefono, cargo, db)
+    return result
+
+#actualizar empleat
+@app.put("/empleats/", response_model=dict)
+async def update_empleat(id: int, nom_complet:str, telefono:int, cargo:str, db:Session = Depends(get_db)):
+    result = empleat_service.update_empleat(id, nom_complet, telefono, cargo, db)
+    return result
+
+#borrar empleat
+@app.delete("/empleats/", response_model=dict)
+async def delete_empleat(id: int, db:Session = Depends(get_db)):
+    result = empleat_service.delete_empleat(id, db)
+    return result
+
+#####--------Endpoints Client-------###############
+
+#read clients
+@app.get("/clients/", response_model= list[dict])
+def read_clients(db:Session = Depends(get_db)):
+    result = client_service.get_all_clients(db)
+    return result
+
+@app.get("/client/", response_model= dict)
+def read_client(id:int, db:Session = Depends(get_db)):
+    result = client_service.get_client(id, db)
+    return result
+
+#añadir client
+@app.post("/clients/", response_model=dict)
+def create_client(id:int,nom_complet:str, telefono:int, db:Session = Depends(get_db)):
+    result = client_service.add_new_client(nom_complet, telefono, db)
+    return result
+
+#actualizar client
+@app.put("/clients/", response_model=dict)
+async def update_client(id: int, nom_complet:str, telefono:int, db:Session = Depends(get_db)):
+    result = client_service.update_client(id, nom_complet, telefono, db)
+    return result
+
+#borrar client
+@app.delete("/clients/", response_model=dict)
+async def delete_client(id: int, db:Session = Depends(get_db)):
+    result = client_service.delete_client(id, db)
+    return result
+
+
+#####--------Endpoints Event-------###############
+
+#read event
+@app.get("/events/", response_model= list[dict])
+def read_events(db:Session = Depends(get_db)):
+    result = event_service.get_all_events(db)
+    return result
+
+@app.get("/event/", response_model= dict)
+def read_event(id:int, db:Session = Depends(get_db)):
+    result = event_service.get_event(id, db)
+    return result
+
+#añadir event
+@app.post("/events/", response_model=dict)
+def create_event(id:int,dia:int, hora:int, mes:int, anyo:int, descripcio:str, db:Session = Depends(get_db)):
+    result = event_service.add_new_event(id, dia, hora, mes, anyo, descripcio, db)
+    return result
+
+#actualizar event
+@app.put("/events/", response_model=dict)
+async def update_event(id: int, dia:int, hora:int, mes:int, anyo:int, descripcio:str, db:Session = Depends(get_db)):
+    result = event_service.update_event(id, dia, hora, mes, anyo, descripcio, db)
+    return result
+
+#borrar event
+@app.delete("/events/", response_model=dict)
+async def delete_event(id: int, db:Session = Depends(get_db)):
+    result = event_service.delete_event(id, db)
+    return result
+
