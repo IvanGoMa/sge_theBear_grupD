@@ -124,7 +124,7 @@ def read_empleat(id:int, db:Session = Depends(get_db)):
 #añadir empleat
 @app.post("/empleats/", response_model=dict)
 def create_empleat(id:int,nom_complet:str, telefono:int, cargo:str, db:Session = Depends(get_db)):
-    result = empleat_service.add_new_empleat(nom_complet, telefono, cargo, db)
+    result = empleat_service.add_new_empleat(id, nom_complet, telefono, cargo, db)
     return result
 
 #actualizar empleat
@@ -155,7 +155,7 @@ def read_client(id:int, db:Session = Depends(get_db)):
 #añadir client
 @app.post("/clients/", response_model=dict)
 def create_client(id:int,nom_complet:str, telefono:int, db:Session = Depends(get_db)):
-    result = client_service.add_new_client(nom_complet, telefono, db)
+    result = client_service.add_new_client(id, nom_complet, telefono, db)
     return result
 
 #actualizar client
