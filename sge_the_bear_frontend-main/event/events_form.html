@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Nou Empleat</title>
+    <link rel="stylesheet" href="style_form_events.css">
+</head>
+<body>
+    <div class="erp-container">
+            <!-- Capçalera Odoo-style -->
+            <header class="erp-header">
+                <div class="erp-logo">ERP System</div>
+                <nav class="erp-nav">
+                    <a href="../main_page.html">Inici</a>
+                    <a href="#">Vendes</a>
+                    <a href="../ususaris/index_form.html">Usuaris</a>
+                    <a href="../empleat/empleats_form.html">Empleats</a>
+                    <a href="../client/clients_form.html">Clients</a>
+                    <a href="../event/events_form.html">Events</a>
+                    <a href="#">Inventari</a>
+                </nav>
+                <div class="erp-user">Admin</div>
+            </header>
+        <div class="container">
+            <h1>Crear Nou Event</h1>
+            <form id="eventForm">
+                <div class="form-group">
+                    <label for="dia">Día:</label>
+                    <input type="text" id="dia" name="dia" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="hora">Hora:</label>
+                    <input type="text" id="hora" name="hora" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mes">Mes:</label>
+                    <input type="text" id="mes" name="mes" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="anyo">Anyo:</label>
+                    <input type="text" id="anyo" name="anyo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="descripcio">Descripció:</label>
+                    <input type="text" id="descripcio" name="descripcio" min="1" max="120" required>
+                </div>
+
+                <button type="submit">Crear Event</button>
+                </br></br>
+                <div class="action-buttons">
+                <button><a href="events_table.html" class="action-btn">
+                    SHOW TABLE EVENTS
+                </a></button>
+             </div>
+            </form>
+            <div id="message" class="message"></div>
+        </div>
+    </div>
+
+    <script src="script_form.js"></script>
+</body>
+</html>

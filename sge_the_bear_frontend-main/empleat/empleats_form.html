@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Nou Empleat</title>
+    <link rel="stylesheet" href="style_form_empleats.css">
+</head>
+<body>
+    <div class="erp-container">
+            <!-- Capçalera Odoo-style -->
+            <header class="erp-header">
+                <div class="erp-logo">ERP System</div>
+                <nav class="erp-nav">
+                    <a href="../main_page.html">Inici</a>
+                    <a href="#">Vendes</a>
+                    <a href="../ususaris/index_form.html">Usuaris</a>
+                    <a href="../empleat/empleats_form.html">Empleats</a>
+                    <a href="../client/clients_form.html">Clients</a>
+                    <a href="../event/events_form.html">Events</a>
+                    <a href="#">Inventari</a>
+                </nav>
+                <div class="erp-user">Admin</div>
+            </header>
+        <div class="container">
+            <h1>Crear Nou Empleat</h1>
+            <form id="empleatForm">
+                <div class="form-group">
+                    <label for="nomcomplet">Nomcomplet:</label>
+                    <input type="text" id="nomcomplet" name="nomcomplet" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="text" id="telefono" name="telefono" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cargo">Cargo:</label>
+                    <input type="text" id="cargo" name="cargo" min="1" max="120" required>
+                </div>
+
+                <button type="submit">Crear Empleat</button>
+                </br></br>
+                <div class="action-buttons">
+                <button><a href="empleats_table.html" class="action-btn">
+                    SHOW TABLE EMPLEATS
+                </a></button>
+             </div>
+            </form>
+            <div id="message" class="message"></div>
+        </div>
+    </div>
+
+    <script src="script_form.js"></script>
+</body>
+</html>
