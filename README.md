@@ -126,12 +126,18 @@ Hem definit una venda com la quantitat d'un menú que es ven en una reserva. Aqu
 ## Modulo Compra
 
 
-### Creamos una nueva compra, rellenando los campos que nos pide 
+### Creamos una nueva compra, con lo siguientes parametros id, nombre y precio
 
 ![Captura de pantalla 2025-05-10 201050](https://github.com/user-attachments/assets/746a2ea7-c1ba-4d19-929d-26fcbfaf884c)
 ![Captura de pantalla 2025-05-10 201115](https://github.com/user-attachments/assets/1bc2066a-8f77-4028-9c89-8226ee3aabbb)
 
 
+## Consulta una compra por su id concreto y nos devuelve un menu 
+![Captura de pantalla 2025-05-10 201131](https://github.com/user-attachments/assets/3d33c159-94e1-434a-8988-ef5bf48a8cda)
+![Captura de pantalla 2025-05-10 201150](https://github.com/user-attachments/assets/c450ee99-df9a-430b-adca-7a6717a12ad6)
+
+
+## Elimina un menu por su id, lo borra completamente de la base de datos
 
 
 
