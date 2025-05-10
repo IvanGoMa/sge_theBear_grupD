@@ -1,6 +1,7 @@
 # sge_theBear_grupD
 projecte the bear sge grup D
-## Model Entitat-Relació
+##
+Model Entitat-Relació
 ![ModelER.jpeg](ModelER.jpeg)
 
 ## Model Relacional
@@ -16,8 +17,51 @@ Compra (no tiene relación): id, hora, dia, mes, any, producto (string), cantida
 
 
 ## Endpoints Reserva
+La clau primària de les reserves és l'id, i també tenen l'id del client que reserva, la taula que reserven i l'hora i la data.
+### Llegir totes les reserves
+![16_read_reservas.png](pics_Jose/16_read_reservas.png)
+![17_read_reservas_2.png](pics_Jose/17_read_reservas_2.png)
 
-## Endpoints Venta
+### Llegir una reserva per id
+![18_read_reserva.png](pics_Jose/18_read_reserva.png)
+
+### Crear una reserva introduint tots els camps
+![19_add_reserva.png](pics_Jose/19_add_reserva.png)
+![20_add_reserva_2.png](pics_Jose/20_add_reserva_2.png)
+
+### Modificar una reserva per id
+![21_update_reserva.png](pics_Jose/21_update_reserva.png)
+![22_update_reserva_2.png](pics_Jose/22_update_reserva_2.png)
+
+### Esborrar una reserva
+![23_delete_reserva.png](pics_Jose/23_delete_reserva.png)
+
+
+## Endpoints Venda
+Una venda té com a clau primària les claus foranes id reserva e id menú. Té com a atribut la quantitat de menús que es venen.
+
+### Llegir totes les vendes
+![24_read_ventas.png](pics_Jose/24_read_ventas.png)
+![25_read_ventas.png](pics_Jose/25_read_ventas.png)
+
+### Llegir una venda per l'id de la reserva i del menú
+![26_read_venta.png](pics_Jose/26_read_venta.png)
+
+### Llegir totes les vendes d'una taula
+![27_read_ticket.png](pics_Jose/27_read_ticket.png)
+
+Hem definit una venda com la quantitat d'un menú que es ven en una reserva. Aquest endpoint serveix per poder generar un tiquet,
+ ja que ens ensenya tots els menús que s'han venut a una reserva.
+### Afegir venda
+![28_add_venta.png](pics_Jose/28_add_venta.png)
+
+### Modificar venda
+![29_update_ventas.png](pics_Jose/29_update_ventas.png)
+![30_update_ventas_2.png](pics_Jose/30_update_ventas_2.png)
+
+### Esborrar venda
+![31_delete_ventas.png](pics_Jose/31_delete_ventas.png)
+
 
 ## módulos Empleat, Client y Event
 
