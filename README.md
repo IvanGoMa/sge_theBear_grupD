@@ -159,6 +159,15 @@ Hem definit una venda com la quantitat d'un menú que es ven en una reserva. Aqu
 ![Captura de pantalla 2025-05-10 201150](https://github.com/user-attachments/assets/729219e9-67d0-4a2c-a408-3fa1954e44a1)
 
 
+## MODULO DE GASTOS
+
+
+## Creamos un nuevo menu 
+![Captura de pantalla 2025-05-10 201606](https://github.com/user-attachments/assets/68c44b33-1cab-4f33-acc2-00a0a310b25d)
+![Captura de pantalla 2025-05-10 201618](https://github.com/user-attachments/assets/04000515-0851-4525-9120-d0643233e60a)
+
+
+
 
 
 
