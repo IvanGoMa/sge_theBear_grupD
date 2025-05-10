@@ -54,4 +54,52 @@ document.addEventListener('DOMContentLoaded', () => {
     ventesModule.addEventListener('mouseleave', () => {
        ventesModule.style.borderColor = '#e0e0e0';
     });
+
+    // Empleats
+    // Afegim event listener per al clic
+    empleatsModule.addEventListener('click', () => {
+        // Redireccionem a la pàgina del formulari
+        window.location.href = './empleat/empleats_form.html';
+    });
+
+    // Opcional: Afegir efecte al passar el ratolí
+    empleatsModule.addEventListener('mouseenter', () => {
+        empleatsModule.style.borderColor = '#714B67';
+    });
+
+    empleatsModule.addEventListener('mouseleave', () => {
+       empleatsModule.style.borderColor = '#e0e0e0';
+    });
+
+    // Clients
+    // Afegim event listener per al clic
+    clientsModule.addEventListener('click', () => {
+        // Redireccionem a la pàgina del formulari
+        window.location.href = './client/clients_form.html';
+    });
+
+    // Opcional: Afegir efecte al passar el ratolí
+    clientsModule.addEventListener('mouseenter', () => {
+        clientsModule.style.borderColor = '#714B67';
+    });
+
+    clientsModule.addEventListener('mouseleave', () => {
+       clientsModule.style.borderColor = '#e0e0e0';
+    });
+
+    // Events
+    // Afegim event listener per al clic
+    eventsModule.addEventListener('click', () => {
+        // Redireccionem a la pàgina del formulari
+        window.location.href = './event/events_form.html';
+    });
+
+    // Opcional: Afegir efecte al passar el ratolí
+    eventsModule.addEventListener('mouseenter', () => {
+        eventsModule.style.borderColor = '#714B67';
+    });
+
+    eventsModule.addEventListener('mouseleave', () => {
+       eventsModule.style.borderColor = '#e0e0e0';
+    });
 });
