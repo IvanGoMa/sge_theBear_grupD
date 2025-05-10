@@ -120,3 +120,22 @@ Hem definit una venda com la quantitat d'un menú que es ven en una reserva. Aqu
 ### Eliminaremos un evento
 ![delete_event](./pics_Jose/14-delete_event.png)
 ![delete_event](./pics_Jose/14a-delete_event.png)
+
+
+
+## Modulo Compra
+
+
+### Creamos una nueva compra, rellenando los campos que nos pide 
+
+![Captura de pantalla 2025-05-10 201050](https://github.com/user-attachments/assets/746a2ea7-c1ba-4d19-929d-26fcbfaf884c)
+![Captura de pantalla 2025-05-10 201115](https://github.com/user-attachments/assets/1bc2066a-8f77-4028-9c89-8226ee3aabbb)
+
+
+
+
+
+
+
+
+
