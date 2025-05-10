@@ -11,13 +11,6 @@ import os
 
 app = FastAPI()
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 # 1. importem el .env (database_url). Carregar variable d'entorn
 load_dotenv()
@@ -108,6 +101,8 @@ def get_jornades(db:Session = Depends(get_db)):
     result = jornada.get_jornades(db)
     return result
 
+<<<<<<< HEAD
+=======
 #####--------Endpoints Empleat-------###############
 
 #read empleats
@@ -202,3 +197,4 @@ async def delete_event(id: int, db:Session = Depends(get_db)):
     result = event_service.delete_event(id, db)
     return result
 
+>>>>>>> main
