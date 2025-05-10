@@ -151,5 +151,5 @@ Hem definit una venda com la quantitat d'un menú que es ven en una reserva. Aqu
 
 
 
-
+s
 
