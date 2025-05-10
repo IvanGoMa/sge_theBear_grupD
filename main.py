@@ -91,7 +91,6 @@ def update_venta(id_reserva:int,id_menu:int,cantidad:int,db:Session = Depends(ge
     result = venta.update_venta(id_reserva, id_menu, cantidad, db)
     return result
 
-
 @app.delete("/delete_ventas", response_model=dict)
 def delete_venta(id_reserva:int,id_menu:int,db:Session = Depends(get_db)):
     result = venta.delete_venta(id_reserva,id_menu,db)
@@ -103,9 +102,51 @@ def get_jornada(id_empleat:int, dia: int, mes: int, any: int,db:Session = Depend
     result = jornada.get_jornada(id_empleat, dia, mes, any, db)
     return result
 
-@app.get("/jornada/", response_model = list[dict])
+@app.get("/jornades/", response_model = list[dict])
 def get_jornades(db:Session = Depends(get_db)):
     result = jornada.get_jornades(db)
+    return result
+
+@app.post("/add_jornada/", response_model = dict)
+def add_jornada(id_empleat:int, dia: int, mes: int, any: int, hora_inici: int, hora_fi:int, db:Session = Depends(get_db)):
+    result = jornada.add_jornada(id_empleat, dia, mes, any, hora_inici, hora_fi, db)
+    return result
+
+@app.put("/update_jornada", response_model= dict)
+def update_jornada(id_empleat:int, dia: int, mes: int, any: int, hora_inici: int, hora_fi:int, db:Session = Depends(get_db)):
+    result = jornada.update_jornada(id_empleat, dia, mes, any, hora_inici, hora_fi, db)
+    return result
+
+@app.delete("/delete_jornada", response_model=dict)
+def delete_jornada(id_empleat:int, dia: int, mes: int, any: int, db:Session = Depends(get_db)):
+    result = jornada.delete_jornada(id_empleat, dia, mes, any, db)
+    return result
+
+#Endpoins mesa
+
+@app.get("/mesa/", response_model = dict)
+def get_mesa(id: int,db:Session = Depends(get_db)):
+    result = mesa.get_mesa(id, db)
+    return result
+
+@app.get("/meses/", response_model = list[dict])
+def get_meses(db:Session = Depends(get_db)):
+    result = mesa.get_meses(db)
+    return result
+
+@app.post("/add_mesa/", response_model = dict)
+def add_mesa(id:int, capacitat:int, db:Session = Depends(get_db)):
+    result = mesa.add_mesa(id, capacitat, db)
+    return result
+
+@app.put("/update_mesa", response_model= dict)
+def update_mesa(id:int, capacitat:int,  db:Session = Depends(get_db)):
+    result = mesa.update_mesa(id, capacitat, db)
+    return result
+
+@app.delete("/delete_mesa", response_model=dict)
+def delete_mesa(id: int, db:Session = Depends(get_db)):
+    result = mesa.delete_mesa(id, db)
     return result
 
 #####--------Endpoints Empleat-------###############
