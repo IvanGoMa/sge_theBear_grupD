@@ -17,7 +17,7 @@ def add_jornada(id_empleat:int, dia: int, mes: int, any: int, hora_inici: int, h
     db.add(db_data)
     db.commit()
     db.refresh(db_data)
-    return {"La jornada s'ha afegir correctament"}
+    return {"msg":"La jornada s'ha afegir correctament"}
 
 def update_jornada(id_empleat:int, any:int, mes:int, dia:int, hora_inici:int, hora_fi:int, db:Session):
     sql_select = select(Jornada).where( Jornada.id_empleat==id_empleat, Jornada.any==any, Jornada.mes==mes, Jornada.dia==dia)

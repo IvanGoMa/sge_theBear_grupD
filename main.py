@@ -113,13 +113,13 @@ def add_jornada(id_empleat:int, dia: int, mes: int, any: int, hora_inici: int, h
     return result
 
 @app.put("/update_jornada", response_model= dict)
-def update_jornada(id_empleat:int, dia: int, mes: int, any: int, hora_inici: int, hora_fi:int, db:Session = Depends(get_db)):
-    result = jornada.update_jornada(id_empleat, dia, mes, any, hora_inici, hora_fi, db)
+def update_jornada(id_empleat:int, any: int,  mes: int, dia: int, hora_inici: int, hora_fi:int, db:Session = Depends(get_db)):
+    result = jornada.update_jornada(id_empleat, any, mes, dia, hora_inici, hora_fi, db)
     return result
 
 @app.delete("/delete_jornada", response_model=dict)
-def delete_jornada(id_empleat:int, dia: int, mes: int, any: int, db:Session = Depends(get_db)):
-    result = jornada.delete_jornada(id_empleat, dia, mes, any, db)
+def delete_jornada(id_empleat:int, any: int,  mes: int, dia: int, db:Session = Depends(get_db)):
+    result = jornada.delete_jornada(id_empleat, any, mes, dia, db)
     return result
 
 #Endpoins mesa
