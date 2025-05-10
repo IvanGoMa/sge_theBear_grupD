@@ -24,20 +24,20 @@ function displayUsers(clients) {
     tableBody.innerHTML = "";
 
     // Iteramos sobre la lista de clientes y creamos las filas de la tabla
-    users.forEach(cliente => {
+    users.forEach(client => {
         const row = document.createElement("tr");
 
         // Creamos las celdas para cada campo del cliente
         const idCell = document.createElement("td");
-        idCell.textContent = cliente.cliente.id;
+        idCell.textContent = client.client.id;
         row.appendChild(idCell);
 
         const nomcompletCell = document.createElement("td");
-        nomcompletCell.textContent = cliente.cliente.nomcomplet;
+        nomcompletCell.textContent = client.client.nomcomplet;
         row.appendChild(nomcompletCell);
 
         const telefonoCell = document.createElement("td");
-        telefonoCell.textContent = cliente.cliente.telefono;
+        telefonoCell.textContent = client.client.telefono;
         row.appendChild(telefonoCell);
 
         // Añadimos la fila a la tabla
