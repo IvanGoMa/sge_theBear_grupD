@@ -37,7 +37,7 @@ function displayUsers(ventas) {
         row.appendChild(id_menu);
 
         const cantidad = document.createElement("td");
-        cantidad.textContent = ventas.ventas.canitdad;
+        cantidad.textContent = ventas.ventas.cantidad;
         row.appendChild(cantidad);
 
 

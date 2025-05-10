@@ -3,7 +3,7 @@ from fastapi import FastAPI, Depends
 from starlette.middleware.cors import CORSMiddleware
 from services import empleat_service, client_service, event_service
 
-from services import reserva, venta, jornada, mesa
+from services import reserva, venta, jornada, mesa, compra, despeses, menu
 from sqlmodel import SQLModel, create_engine, Session
 from dotenv import load_dotenv
 from datetime import datetime
@@ -12,6 +12,13 @@ import os
 
 app = FastAPI()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # 1. importem el .env (database_url). Carregar variable d'entorn
 load_dotenv()
@@ -49,12 +56,12 @@ def create_reserva(id:int,id_client:int,id_mesa:int,hora:int,dia:int,mes:int,any
     result = reserva.add_reserva(id,id_client,id_mesa,hora,dia,mes,any,db)
     return result
 
-@app.put("/update_reservas", response_model=str)
+@app.put("/update_reservas", response_model=dict)
 def update_reserva(id:int,id_client:int,id_mesa:int,hora:int,dia:int,mes:int,any:int, db:Session = Depends(get_db)):
     result = reserva.update_reserva(id,id_client,id_mesa,hora,dia,mes,any,db)
     return result
 
-@app.delete("/delete_reservas", response_model=str)
+@app.delete("/delete_reservas", response_model=dict)
 def delete_reserva(id:int,db:Session = Depends(get_db)):
     result = reserva.delete_reserva(id,db)
     return result
@@ -75,18 +82,18 @@ def read_ticket(id_reserva:int,db:Session = Depends(get_db)):
     result = venta.read_ticket(id_reserva, db)
     return result
 
-@app.post("/add_ventas/", response_model = str)
+@app.post("/add_ventas/", response_model = dict)
 def create_venta(id_reserva:int,id_menu:int,cantidad:int,db:Session = Depends(get_db)):
     result = venta.add_venta(id_reserva, id_menu,cantidad, db)
     return result
 
-@app.put("/update_ventas", response_model= str)
+@app.put("/update_ventas", response_model= dict)
 def update_venta(id_reserva:int,id_menu:int,cantidad:int,db:Session = Depends(get_db)):
     result = venta.update_venta(id_reserva, id_menu, cantidad, db)
     return result
 
 
-@app.delete("/delete_ventas", response_model=str)
+@app.delete("/delete_ventas", response_model=dict)
 def delete_venta(id_reserva:int,id_menu:int,db:Session = Depends(get_db)):
     result = venta.delete_venta(id_reserva,id_menu,db)
     return result
@@ -102,8 +109,6 @@ def get_jornades(db:Session = Depends(get_db)):
     result = jornada.get_jornades(db)
     return result
 
-<<<<<<< HEAD
-=======
 #####--------Endpoints Empleat-------###############
 
 #read empleats
@@ -198,4 +203,78 @@ async def delete_event(id: int, db:Session = Depends(get_db)):
     result = event_service.delete_event(id, db)
     return result
 
->>>>>>> main
+# Endpoints para Compra
+
+@app.post("/compra/")
+def create_compra_view(id_producte: int, dia: int, hora: int, cantidad: int, db: Session = Depends(get_db)):
+    return compra.add_compra(id_producte=id_producte, dia=dia, hora=hora, cantidad=cantidad, db=db)
+
+
+@app.get("/compra/")
+def get_compra_view(id_producte: int, dia: int = 1, db: Session = Depends(get_db)):
+    return compra.read_compra(id_producte, dia, db)
+
+
+@app.get("/compres/")
+def get_all_compras_view(db: Session = Depends(get_db)):
+    return compra.read_all_compras(db=db)
+
+
+@app.get("/compra/")
+def get_ticket_view(id_producte: int, db: Session = Depends(get_db)):
+    return compra.read_ticket(id_producte=id_producte, db=db)
+
+
+@app.put("/compra/")
+def update_compra_view(id_producte: int, dia: int, cantidad: int, db: Session = Depends(get_db)):
+    return compra.update_compra(id_producte=id_producte, dia=dia, cantidad=cantidad, db=db)
+
+
+@app.delete("/compra/")
+def delete_compra_view(id_producte: int, dia: int, db: Session = Depends(get_db)):
+    return compra.delete_compra(id_producte=id_producte, dia=dia, db=db)
+
+
+# Endpoints despesa
+
+@app.post("/despesa/")
+def create_despesa_view(id_empleat: int, dia: int, hora: int, cantidad: int, descripcion: str, db: Session = Depends(get_db)):
+    return despeses.add_despeses(id_empleat=id_empleat, dia=dia, hora=hora, cantidad=cantidad, descripcion=descripcion, db=db)
+
+
+@app.get("/despesa/")
+def get_despesa_view(id_empleat: int, dia: int, db: Session = Depends(get_db)):
+    return despeses.read_despeses(id_empleat=id_empleat, dia=dia, db=db)
+
+
+@app.put("/despesa/")
+def update_despesa_view(id_empleat: int, dia: int, cantidad: int, db: Session = Depends(get_db)):
+    return despeses.update_despeses(id_empleat=id_empleat, dia=dia, cantidad=cantidad, db=db)
+
+
+@app.delete("/despesa/")
+def delete_despesa_view(id_empleat: int, dia: int, db: Session = Depends(get_db)):
+    return despeses.delete_despeses(id_empleat=id_empleat, dia=dia, db=db)
+
+
+# Endpoints menú
+@app.post("/menu/")
+def create_menu_view(id: int, nom: str, preu: float, db: Session = Depends(get_db)):
+    return menu.add_menu(id=id, nom=nom, preu=preu, db=db)
+
+@app.get("/menu/{id}")
+def get_menu_view(id: int, db: Session = Depends(get_db)):
+    return menu.read_menu(id=id, db=db)
+
+@app.get("/menu/")
+def get_all_menus_view(db: Session = Depends(get_db)):
+    return menu.read_all_menus(db=db)
+
+@app.put("/menu/{id}")
+def update_menu_view(id: int, nom: str, preu: float, db: Session = Depends(get_db)):
+    return menu.update_menu(id=id, nom=nom, preu=preu, db=db)
+
+@app.delete("/menu/{id}")
+def delete_menu_view(id: int, db: Session = Depends(get_db)):
+    return menu.delete_menu(id=id, db=db)
+

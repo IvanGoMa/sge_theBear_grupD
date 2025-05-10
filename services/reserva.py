@@ -31,7 +31,7 @@ def update_reserva(id:int,id_client:int, id_mesa:int, hora:int, dia:int, mes:int
     reserva.any = any
     db.add(reserva)
     db.commit()
-    return "Reserva amb id {} actualitzada".format(id)
+    return {"msg":"Reserva amb id {} actualitzada".format(id)}
 def delete_reserva(id:int,db:Session):
     sql_read = select(Reserva).where(Reserva.id == id)
     reserva = db.exec(sql_read).one()
@@ -42,7 +42,7 @@ def delete_reserva(id:int,db:Session):
     reserva = db.exec(sql_read).first()
 
     if reserva is None:
-        return "Reserva amb id {} eliminada".format(id)
+        return {"msg":"Reserva amb id {} eliminada".format(id)}
 
 
 
