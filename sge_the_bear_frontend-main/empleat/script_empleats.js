@@ -17,31 +17,31 @@ async function fetchUsers() {
 }
 
 // Función para mostrar los empleados en la tabla
-function displayUsers(empleados) {
-    const tableBody = document.querySelector("#empleadosTable tbody");
+function displayUsers(empleats) {
+    const tableBody = document.querySelector("#empleatsTable tbody");
 
     // Limpiamos el contenido actual de la tabla
     tableBody.innerHTML = "";
 
     // Iteramos sobre la lista de empleados y creamos las filas de la tabla
-    users.forEach(empleado => {
+    users.forEach(empleat => {
         const row = document.createElement("tr");
 
         // Creamos las celdas para cada campo del empleado
         const idCell = document.createElement("td");
-        idCell.textContent = empleado.empleado.id;
+        idCell.textContent = empleat.empleat.id;
         row.appendChild(idCell);
 
         const nomcompletCell = document.createElement("td");
-        nomcompletCell.textContent = empleado.empleado.nomcomplet;
+        nomcompletCell.textContent = empleat.empleat.nomcomplet;
         row.appendChild(nomcompletCell);
 
         const telefonoCell = document.createElement("td");
-        telefonoCell.textContent = empleado.empleado.telefono;
+        telefonoCell.textContent = empleat.empleat.telefono;
         row.appendChild(telefonoCell);
 
         const cargoCell = document.createElement("td");
-        cargoCell.textContent = empleado.empleado.cargo;
+        cargoCell.textContent = empleat.empleat.cargo;
         row.appendChild(cargoCell);
 
         // Añadimos la fila a la tabla

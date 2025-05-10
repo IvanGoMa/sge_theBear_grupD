@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Eventos</title>
+    <link rel="stylesheet" href="style_table_events.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <h1>Llista d'events</h1>
+    <table id="eventsTable">
+        <thead>
+            <div class="action-buttons">
+                <button><a href="events_form.html" class="action-btn">
+                    ADD EVENT
+                </a></button>
+            </div>
+            <tr>
+                <th>dia</th>
+                <th>hora</th>
+                <th>mes</th>
+                <th>anyo</th>
+                <th>descripcio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Los datos se insertarán aquí dinámicamente -->
+        </tbody>
+    </table>
+
+    <!-- Cargamos el archivo JavaScript -->
+    <script src="script_events.js"></script>
+</body>
+</html>
