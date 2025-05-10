@@ -55,12 +55,12 @@ def create_reserva(id:int,id_client:int,id_mesa:int,hora:int,dia:int,mes:int,any
     result = reserva.add_reserva(id,id_client,id_mesa,hora,dia,mes,any,db)
     return result
 
-@app.put("/update_reservas", response_model=str)
+@app.put("/update_reservas", response_model=dict)
 def update_reserva(id:int,id_client:int,id_mesa:int,hora:int,dia:int,mes:int,any:int, db:Session = Depends(get_db)):
     result = reserva.update_reserva(id,id_client,id_mesa,hora,dia,mes,any,db)
     return result
 
-@app.delete("/delete_reservas", response_model=str)
+@app.delete("/delete_reservas", response_model=dict)
 def delete_reserva(id:int,db:Session = Depends(get_db)):
     result = reserva.delete_reserva(id,db)
     return result
@@ -81,18 +81,18 @@ def read_ticket(id_reserva:int,db:Session = Depends(get_db)):
     result = venta.read_ticket(id_reserva, db)
     return result
 
-@app.post("/add_ventas/", response_model = str)
+@app.post("/add_ventas/", response_model = dict)
 def create_venta(id_reserva:int,id_menu:int,cantidad:int,db:Session = Depends(get_db)):
     result = venta.add_venta(id_reserva, id_menu,cantidad, db)
     return result
 
-@app.put("/update_ventas", response_model= str)
+@app.put("/update_ventas", response_model= dict)
 def update_venta(id_reserva:int,id_menu:int,cantidad:int,db:Session = Depends(get_db)):
     result = venta.update_venta(id_reserva, id_menu, cantidad, db)
     return result
 
 
-@app.delete("/delete_ventas", response_model=str)
+@app.delete("/delete_ventas", response_model=dict)
 def delete_venta(id_reserva:int,id_menu:int,db:Session = Depends(get_db)):
     result = venta.delete_venta(id_reserva,id_menu,db)
     return result

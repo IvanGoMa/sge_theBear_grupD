@@ -8,7 +8,7 @@ def add_venta(id_reserva:int,id_menu:int,cantidad:int, db:Session):
     db.add(db_venta)
     db.commit()
     db.refresh(db_venta)
-    return "Venta creada"
+    return {"msg":"Venta creada"}
 
 def read_venta(id_reserva:int,id_menu:int, db:Session):
     sql_read = select(Venta).where(Venta.id_reserva == id_reserva).where(Venta.id_menu == id_menu)
@@ -31,13 +31,13 @@ def update_venta(id_reserva:int,id_menu:int,cantidad:int, db:Session):
     venta.cantidad = cantidad
     db.add(venta)
     db.commit()
-    return "Venta de la reserva {} actualitzada".format(id_reserva)
+    return {"msg":"Venta de la reserva {} actualitzada".format(id_reserva)}
 
 def delete_venta(id_reserva:int, id_menu:int, db:Session):
     sql_read = select(Venta).where(Venta.id_reserva == id_reserva, Venta.id_menu == id_menu)
     venta = db.exec(sql_read).one()
     db.delete(venta)
     db.commit()
-    return "Venta eliminada"
+    return {"msg":"Venta eliminada"}
 
 
