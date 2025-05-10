@@ -193,17 +193,17 @@ Hem definit una venda com la quantitat d'un menú que es ven en una reserva. Aqu
 ![image](https://github.com/user-attachments/assets/50e85bc9-9b57-4b15-a9da-7d3dba6c3156)
 ![image](https://github.com/user-attachments/assets/187b3aa1-7885-4bf2-94a0-00b88bf6a8df)
 
-## Nos muestra un menu en especifico 
+## Nos muestra todos los menus
 ![image](https://github.com/user-attachments/assets/30f6f744-c45d-4977-86ae-a58653d8a0a2)
 ![image](https://github.com/user-attachments/assets/6e2ea2d2-bdad-4c55-871f-2a168e1c324c)
 
 
-## En cambio aqui nos muestra todos los menus 
+## En cambio aqui nos muestra un menu en especifico
 ![image](https://github.com/user-attachments/assets/b1ec8fe8-04dd-4061-a0ef-2501267f0e52)
 ![image](https://github.com/user-attachments/assets/784c87a0-1d91-4713-8d4e-7753302e6e54)
 
 
-## Actualizar unn menu especifico
+## Actualizar un menu especifico
 ![image](https://github.com/user-attachments/assets/06ef70a2-6f9c-4251-bdb4-ed200f283e01)
 ![image](https://github.com/user-attachments/assets/3f727a17-18f9-4180-a211-9246ce6c7f44)
 
