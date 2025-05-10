@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Menús</title>
+    <link rel="stylesheet" href="style_table_menu.css"> <!-- Ruta al archivo de estilo -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Menús</h1>
+    <table id="menuTable">
+        <thead>
+            <div class="action-buttons">
+                <button><a href="menu_form.html" class="action-btn">Añadir Menú</a></button>
+            </div>
+            <tr>
+                <th>ID Menú</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Los datos se insertarán aquí dinámicamente -->
+        </tbody>
+    </table>
+
+    <script src="script_menu.js"></script> <!-- Ruta al archivo JS -->
+</body>
+</html>
