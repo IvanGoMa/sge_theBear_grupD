@@ -144,12 +144,21 @@ Hem definit una venda com la quantitat d'un menú que es ven en una reserva. Aqu
 ![Captura de pantalla 2025-05-10 201150](https://github.com/user-attachments/assets/c450ee99-df9a-430b-adca-7a6717a12ad6)
 
 
-## Consulta una compra por su id
+## Actualizamos una compra existent
+![Captura de pantalla 2025-05-10 201206](https://github.com/user-attachments/assets/aa180043-3c6c-4aa3-8175-5da6fb926567)
+![Captura de pantalla 2025-05-10 201227](https://github.com/user-attachments/assets/ddf93920-8714-4c4d-a33f-54e45a9c9dcf)ç
+
+## Eliminamos una compra existente para la cual necesitmos un id del producto y el dia.
+
+![Captura de pantalla 2025-05-10 201246](https://github.com/user-attachments/assets/f79b9562-5ca9-4ea9-ae17-b32211f8e0c8)
+![Captura de pantalla 2025-05-10 201258](https://github.com/user-attachments/assets/9f211596-6648-43e0-b9e9-76c0220eccaf)
+
+
+## Este get es diferente al otro este lo que hace es devolvernos todas las compras que esten almacenadas en la base de datos
+![Captura de pantalla 2025-05-10 201131](https://github.com/user-attachments/assets/e4b27049-a1c0-4629-b198-b251e1739f7c)
+![Captura de pantalla 2025-05-10 201150](https://github.com/user-attachments/assets/729219e9-67d0-4a2c-a408-3fa1954e44a1)
 
 
 
 
-
-
-s
 
