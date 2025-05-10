@@ -175,7 +175,7 @@ Hem definit una venda com la quantitat d'un menú que es ven en una reserva. Aqu
 
 
 
-##Actulaizamos un gasto exisitente 
+## Actulaizamos un gasto exisitente 
 ![Captura de pantalla 2025-05-10 201456](https://github.com/user-attachments/assets/86c015af-da37-4b78-a356-fc3b64d88191)
 
 ![Captura de pantalla 2025-05-10 201509](https://github.com/user-attachments/assets/a1f52e57-c1b9-4869-b227-636ac506b388)
@@ -183,6 +183,36 @@ Hem definit una venda com la quantitat d'un menú que es ven en una reserva. Aqu
 ## Borramos un gasto especifico
 
 ![image](https://github.com/user-attachments/assets/e61642d0-0cba-49cf-bd3a-53bd0323ddff)
+
+
+## MODULO MENU
+
+
+## Creamos un nuevo menu 
+
+![image](https://github.com/user-attachments/assets/50e85bc9-9b57-4b15-a9da-7d3dba6c3156)
+![image](https://github.com/user-attachments/assets/187b3aa1-7885-4bf2-94a0-00b88bf6a8df)
+
+## Nos muestra un menu en especifico 
+![image](https://github.com/user-attachments/assets/30f6f744-c45d-4977-86ae-a58653d8a0a2)
+![image](https://github.com/user-attachments/assets/6e2ea2d2-bdad-4c55-871f-2a168e1c324c)
+
+
+## En cambio aqui nos muestra todos los menus 
+![image](https://github.com/user-attachments/assets/b1ec8fe8-04dd-4061-a0ef-2501267f0e52)
+![image](https://github.com/user-attachments/assets/784c87a0-1d91-4713-8d4e-7753302e6e54)
+
+
+## Actualizar unn menu especifico
+![image](https://github.com/user-attachments/assets/06ef70a2-6f9c-4251-bdb4-ed200f283e01)
+![image](https://github.com/user-attachments/assets/3f727a17-18f9-4180-a211-9246ce6c7f44)
+
+
+## Eliminar un menu especifico
+![image](https://github.com/user-attachments/assets/4d8fae21-bb13-4896-a8b8-53527808c3de)
+![image](https://github.com/user-attachments/assets/3a750d23-1d10-4c3f-981c-7a8b2b5a3799)
+
+
 
 
 
