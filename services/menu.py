@@ -1,8 +1,8 @@
-# services/menu.py
-
+from pydantic_core.core_schema import none_schema
 from sqlmodel import Session, select
 from models.Menu import Menu
-from schema.menu_sch import schema, schemas  # Asegúrate de tener estos esquemas creados
+from schema.menu_sch import schema,schemas
+
 
 def add_menu(id: int, nom: str, preu: float, db: Session):
     db_menu = Menu(id=id, nom=nom, preu=preu)

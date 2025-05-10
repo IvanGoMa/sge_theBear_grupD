@@ -3,7 +3,7 @@ def schema(compra) -> dict:
         "id_producte": compra.id_producte,
         "dia": compra.dia,
         "hora": compra.hora,
-        "cantitat": compra.cantitat
+        "cantidad": compra.cantidad
     }
 
 def schemas(compras) -> list[dict]:

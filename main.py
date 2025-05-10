@@ -29,8 +29,6 @@ def get_db():
     finally:
         db.close()
 
-<<<<<<< HEAD
-=======
 
 # Endpoints reserva
 
@@ -101,4 +99,4 @@ def get_jornada(id_empleat:int, dia: int, mes: int, any: int,db:Session = Depend
 def get_jornades(db:Session = Depends(get_db)):
     result = jornada.get_jornades(db)
     return result
->>>>>>> main
+

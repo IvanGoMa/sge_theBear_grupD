@@ -28,7 +28,7 @@ def read_ticket(id_empleat:int, db:Session):
 def update_despeses(id_empleat:int,dia:int,cantidad:int, db:Session):
     sql_read = select(Despesa).where(Despesa.id_empleat == id_empleat, Despesa.dia == dia)
     despeses = db.exec(sql_read).one()
-    despeses.cantidad = cantidad
+    despeses.cantitat = cantidad
     db.add(despeses)
     db.commit()
     return "Despesa de la reserva {} actualitzada".format(id_empleat)

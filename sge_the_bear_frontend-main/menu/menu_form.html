@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Nuevo Menú</title>
+    <link rel="stylesheet" href="style_form_menu.css"> <!-- Ruta al archivo de estilo -->
+</head>
+<body>
+    <div class="erp-container">
+        <!-- Capçalera Odoo-style -->
+        <header class="erp-header">
+            <div class="erp-logo">ERP System</div>
+            <nav class="erp-nav">
+                <a href="../main_page.html">Inicio</a>
+                <a href="../venta/ventes_form.html">Ventas</a>
+                <a href="../ususaris/index_form.html">Usuarios</a>
+                <a href="#">Inventario</a>
+            </nav>
+            <div class="erp-user">Admin</div>
+        </header>
+
+        <div class="container">
+            <h1>Crear Nuevo Menú</h1>
+            <form id="menuForm">
+                <div class="form-group">
+                    <label for="id">ID del Menú:</label>
+                    <input type="number" id="id" name="id" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="nombre">Nombre del Menú:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="descripcion">Descripción:</label>
+                    <input type="text" id="descripcion" name="descripcion" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="precio">Precio:</label>
+                    <input type="number" id="precio" name="precio" required>
+                </div>
+
+                <button type="submit">Crear Menú</button>
+                </br></br>
+                <div class="action-buttons">
+                    <button><a href="menu_table.html" class="action-btn">Mostrar Tabla de Menús</a></button>
+                </div>
+            </form>
+            <div id="message" class="message"></div>
+        </div>
+    </div>
+
+    <script src="script_form_menu.js"></script> <!-- Ruta al archivo JS del formulario -->
+</body>
+</html>
