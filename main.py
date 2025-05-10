@@ -7,6 +7,7 @@ from services import reserva, venta, jornada, mesa
 from sqlmodel import SQLModel, create_engine, Session
 from dotenv import load_dotenv
 from datetime import datetime
+
 import os
 
 app = FastAPI()
