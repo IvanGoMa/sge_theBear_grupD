@@ -162,10 +162,27 @@ Hem definit una venda com la quantitat d'un menú que es ven en una reserva. Aqu
 ## MODULO DE GASTOS
 
 
-## Creamos un nuevo menu 
-![Captura de pantalla 2025-05-10 201606](https://github.com/user-attachments/assets/68c44b33-1cab-4f33-acc2-00a0a310b25d)
-![Captura de pantalla 2025-05-10 201618](https://github.com/user-attachments/assets/04000515-0851-4525-9120-d0643233e60a)
+## Creamos un nuevo gasto 
 
+![Captura de pantalla 2025-05-10 201348](https://github.com/user-attachments/assets/c68bad0d-be77-45a4-b710-9dcb3255d369)
+
+![Captura de pantalla 2025-05-10 201401](https://github.com/user-attachments/assets/58211796-03ba-43c6-bbbf-eb4e82de535c)
+
+## Ahora obtendremos los gastos de un empleado especifico en un dia
+
+![Captura de pantalla 2025-05-10 201417](https://github.com/user-attachments/assets/91a60ca5-f2bb-4f15-a579-1a1ffe9aa15a)
+![Captura de pantalla 2025-05-10 201432](https://github.com/user-attachments/assets/4ed9a4a7-712f-40d7-95da-29b7370c4474)
+
+
+
+##Actulaizamos un gasto exisitente 
+![Captura de pantalla 2025-05-10 201456](https://github.com/user-attachments/assets/86c015af-da37-4b78-a356-fc3b64d88191)
+
+![Captura de pantalla 2025-05-10 201509](https://github.com/user-attachments/assets/a1f52e57-c1b9-4869-b227-636ac506b388)
+
+## Borramos un gasto especifico
+
+![image](https://github.com/user-attachments/assets/e61642d0-0cba-49cf-bd3a-53bd0323ddff)
 
 
 
