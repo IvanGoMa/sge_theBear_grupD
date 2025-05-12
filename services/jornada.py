@@ -4,8 +4,8 @@ from models.Jornada import Jornada
 
 def get_jornada(id_empleat:int, dia: int, mes: int, any: int, db:Session):
     sql_read = select(Jornada).where(Jornada.id_empleat==id_empleat, Jornada.any==any, Jornada.mes==mes, Jornada.dia==dia)
-    jornada = db.exec(sql_read)
-    return schema(jornada).one()
+    jornada = db.exec(sql_read).one()
+    return schema(jornada)
 
 def get_jornades(db:Session):
     sql_read = select(Jornada)
