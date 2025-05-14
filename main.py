@@ -256,6 +256,10 @@ def update_despesa_view(id_empleat: int, dia: int, cantidad: int, db: Session = 
 def delete_despesa_view(id_empleat: int, dia: int, db: Session = Depends(get_db)):
     return despeses.delete_despeses(id_empleat=id_empleat, dia=dia, db=db)
 
+@app.get("/despeses/")
+def get_all_despeses_view(db: Session = Depends(get_db)):
+    return despeses.read_all_despeses(db=db)
+
 
 # Endpoints menú
 @app.post("/menu/")
