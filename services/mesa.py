@@ -3,10 +3,10 @@ from sqlmodel import Session, select
 from models.Mesa import Mesa
 
 
-def get_mesa(id:id, db: Session):
+def get_mesa(id:int, db: Session):
     sql_read = select(Mesa).where(Mesa.id==id)
-    mesa = db.exec(sql_read)
-    return schema(mesa).one()
+    mesa = db.exec(sql_read).one()
+    return schema(mesa)
 
 
 def get_meses(db: Session):
@@ -15,12 +15,12 @@ def get_meses(db: Session):
     return schemas(meses)
 
 
-def add_jornada(id:int, capacitat:int, db: Session):
+def add_mesa(id:int, capacitat:int, db: Session):
     db_data = Mesa(id=id, capacitat=capacitat)
     db.add(db_data)
     db.commit()
     db.refresh(db_data)
-    return {"La mesa s'ha afegir correctament"}
+    return {"msg":"La mesa s'ha afegir correctament"}
 
 
 def update_mesa(id: int, capacitat:int, db: Session):

@@ -14,8 +14,8 @@ def get_empleat( id, db:Session):
     empleats = db.exec(sql_read).one()
     return empleat_schema(empleats)
 
-def add_new_empleat(nom_complet:str, telefono:int, cargo:str, db:Session):
-    db_empleat = Empleat(nom_complet=nom_complet, telefono=telefono, cargo=cargo)
+def add_new_empleat(id:int, nom_complet:str, telefono:int, cargo:str, db:Session):
+    db_empleat = Empleat(id=id, nom_complet=nom_complet, telefono=telefono, cargo=cargo)
     db.add(db_empleat)
     db.commit()
     db.refresh(db_empleat)
