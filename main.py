@@ -7,6 +7,7 @@ from services import reserva, venta, jornada, mesa, compra, despeses, menu
 from sqlmodel import SQLModel, create_engine, Session
 from dotenv import load_dotenv
 from datetime import datetime
+
 import os
 
 app = FastAPI()
@@ -295,6 +296,10 @@ def update_despesa_view(id_empleat: int, dia: int, cantidad: int, db: Session = 
 @app.delete("/despesa/")
 def delete_despesa_view(id_empleat: int, dia: int, db: Session = Depends(get_db)):
     return despeses.delete_despeses(id_empleat=id_empleat, dia=dia, db=db)
+
+@app.get("/despeses/")
+def get_all_despeses_view(db: Session = Depends(get_db)):
+    return despeses.read_all_despeses(db=db)
 
 
 # Endpoints menú

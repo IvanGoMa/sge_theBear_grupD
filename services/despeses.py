@@ -3,12 +3,18 @@ from sqlmodel import Session, select
 from models.Despesa import Despesa
 from schema.despeses_sch import schema,schemas
 
-def add_despeses(id_empleat:int,dia:int,cantidad:int,hora:int,descripcion:str,db:Session):
-    db_despeses = Despesa(id_empleat=id_empleat, dia=dia, cantidad = cantidad, hora=hora, descripcion=descripcion)
+def add_despeses(id_empleat:int, dia:int, cantidad:int, hora:int, descripcion:str, db:Session):
+    db_despeses = Despesa(id_empleat=id_empleat, dia=dia, cantitat=cantidad, hora=hora, description=descripcion)
     db.add(db_despeses)
     db.commit()
     db.refresh(db_despeses)
     return "Despesa creada"
+
+def read_all_despeses(db: Session):
+    sql = select(Despesa)
+    result = db.exec(sql).all()
+    return result
+
 
 def read_despeses(id_empleat:int,dia:int, db:Session):
     sql_read = select(Despesa).where(Despesa.id_empleat == id_empleat).where(Despesa.dia == dia)
